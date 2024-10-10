@@ -11,24 +11,42 @@ struct MainScreenView: View {
     
     var body: some View {
         TabView {
-            HomeView()
-                .tabItem {
-                    Image(systemName: "house")
-                    Text("Home")
-                }
-            
-            RankingView()
-                .tabItem {
-                    Image(systemName: "star")
-                    Text("Ranking")
-                }
-            
-            ProfileView()
-                .tabItem {
-                    Image(systemName: "person")
-                    Text("Profile")
-                }
+            NavigationView {
+                HomeView()
+                    .navigationBarTitle("Home", displayMode: .inline)
             }
+            .tabItem {
+                Image(systemName: "house.fill")
+                Text("Home")
+            }
+
+            NavigationView {
+                RankingView()
+                    .navigationBarTitle("Ranking", displayMode: .inline)
+            }
+            .tabItem {
+                Image(systemName: "star.fill")
+                Text("Ranking")
+            }
+
+            NavigationView {
+                ProfileView()
+                    .navigationBarTitle("Profile", displayMode: .inline)
+            }
+            .tabItem {
+                Image(systemName: "person.fill")
+                Text("Profile")
+            }
+        }
+        .accentColor(.white)
+        .onAppear {
+            let appearance = UITabBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            appearance.backgroundColor = UIColor.clear
+            UITabBar.appearance().standardAppearance = appearance
+            UITabBar.appearance().scrollEdgeAppearance = appearance
+        
+        }
     }
 }
 

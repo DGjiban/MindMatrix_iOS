@@ -9,6 +9,10 @@ import SwiftUI
 
 struct RankingView: View {
     var body: some View {
+        ZStack {
+            LinearGradient(gradient: Gradient(colors: [Color.indigo, Color.blue]), startPoint: .topLeading, endPoint: .bottomTrailing)
+                .edgesIgnoringSafeArea(.all)
+        }
         Text("Ranking View")
     }
 }

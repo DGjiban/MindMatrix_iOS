@@ -20,13 +20,15 @@ struct LoginView: View {
                 // Background
                 LinearGradient(gradient: Gradient(colors: [Color.indigo, Color.blue]), startPoint: .topLeading, endPoint: .bottomTrailing)
                     .edgesIgnoringSafeArea(.all)
-
+            
                 VStack {
                     Text("MindMatrix")
                         .font(.largeTitle)
                         .fontWeight(.bold)
                         .foregroundColor(.white)
-                        .padding(.bottom, 6 0)
+                        .padding(.bottom, 20)
+                    
+                    Spacer()
                     
                     TextField("Email", text: $email)
                         .padding()
@@ -45,7 +47,7 @@ struct LoginView: View {
                     NavigationLink(destination: forgetPasswordView()) {
                         Text("Forget password")
                             .padding(5)
-                            .foregroundColor(.black)
+                            .foregroundColor(.cyan)
                             .font(.headline)
                     }.padding()
 
@@ -69,9 +71,15 @@ struct LoginView: View {
                             .cornerRadius(10)
                             .font(.headline)
                     }
-                    .padding(.top, 90)
+                    .padding(.top, 20)
+                    
+                    Spacer()
+
+                    Text("@2024 MindMatrix")
+                        .foregroundColor(.white)
+                        .padding(.bottom, 5)
                 }
-                .padding()
+                .padding(40)
             }
             .alert(isPresented: $showAlert) {
                 Alert(title: Text("Notification"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
