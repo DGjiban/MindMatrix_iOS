@@ -34,6 +34,8 @@ struct RegisterView: View {
                     .foregroundColor(.white)
                     .padding(.bottom, 40)
                 
+                Spacer()
+                
                 TextField("Name", text: $name)
                     .padding()
                     .background(Color.white)
@@ -93,7 +95,6 @@ struct RegisterView: View {
                 Alert(title: Text("Registration Status"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
             }
         }
-        .navigationTitle("Register")
     }
     
     func cancel(){
